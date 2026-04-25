@@ -1,0 +1,90 @@
+Voglio inizializzare in questa cartella un sistema “LLM Wiki” ispirato al modello di Andrej Karpathy.
+
+Obiettivo:
+- analizzare la cartella corrente;
+- creare una struttura wiki persistente;
+- fare ingest dei contenuti utili;
+- produrre pagine Markdown sintetiche, collegate e mantenibili;
+- non modificare mai i file sorgenti originali.
+
+Prima fase: inizializzazione
+
+1. Analizza la struttura della cartella corrente.
+2. Crea, se non esistono, queste cartelle e file:
+
+raw/
+wiki/
+wiki/index.md
+wiki/log.md
+CLAUDE.md
+
+3. In `raw/` copia o referenzia i materiali sorgente importanti, mantenendoli come fonte immutabile.
+   Non riscrivere i file originali del progetto.
+   Se trovi codice sorgente, documentazione, README, file Markdown, PDF, note, configurazioni o specifiche, trattali come possibili sorgenti.
+
+4. In `CLAUDE.md` scrivi le regole operative del wiki:
+   - `raw/` contiene fonti originali o copie immutabili;
+   - `wiki/` contiene pagine generate e mantenute dall’LLM;
+   - `wiki/index.md` è l’indice navigabile per argomenti, entità, componenti, concetti e sorgenti;
+   - `wiki/log.md` è il registro cronologico append-only delle operazioni;
+   - ogni pagina wiki deve avere titolo, sintesi, riferimenti alle fonti, collegamenti interni e punti aperti;
+   - ogni ingest deve aggiornare index, pagine collegate e log;
+   - quando emergono contraddizioni, ambiguità o informazioni obsolete, segnalarle esplicitamente.
+
+Seconda fase: ingest
+
+Esegui l’ingest della cartella corrente seguendo queste regole:
+
+1. Parti dai file più importanti:
+   - README;
+   - documentazione;
+   - file di configurazione;
+   - schema database;
+   - API;
+   - codice sorgente principale;
+   - script di build/deploy;
+   - eventuali file di progetto.
+
+2. Per ogni sorgente significativa:
+   - crea una voce in `raw/` o registra il riferimento al file originale;
+   - estrai concetti, entità, moduli, decisioni progettuali, dipendenze, flussi operativi e rischi;
+   - crea o aggiorna pagine Markdown in `wiki/`;
+   - collega le pagine tra loro usando link stile Obsidian, ad esempio `[[Nome Pagina]]`;
+   - inserisci riferimenti alla sorgente originale;
+   - aggiorna `wiki/index.md`;
+   - aggiungi una voce in `wiki/log.md` con data, tipo operazione, file analizzati e pagine aggiornate.
+
+3. Non limitarti a fare un riassunto file-per-file.
+   Voglio una vera wiki di conoscenza:
+   - pagine per componenti;
+   - pagine per concetti;
+   - pagine per flussi;
+   - pagine per decisioni architetturali;
+   - pagine per problemi aperti;
+   - eventuali diagrammi Mermaid quando utili.
+
+4. Se il progetto è software, crea almeno queste pagine se applicabili:
+   - `wiki/overview.md`
+   - `wiki/architecture.md`
+   - `wiki/data-model.md`
+   - `wiki/api.md`
+   - `wiki/frontend.md`
+   - `wiki/backend.md`
+   - `wiki/deployment.md`
+   - `wiki/security.md`
+   - `wiki/open-questions.md`
+
+5. Alla fine produci un breve report in chat con:
+   - file principali analizzati;
+   - pagine wiki create o aggiornate;
+   - punti incerti;
+   - prossimi ingest consigliati;
+   - eventuali problemi trovati.
+
+Vincoli importanti:
+- Non cancellare nulla.
+- Non modificare codice sorgente senza richiesta esplicita.
+- Non inventare informazioni non presenti nei file.
+- Se una cosa è dedotta, scrivilo chiaramente.
+- Se una sorgente è troppo grande, analizzala per sezioni.
+- Mantieni il wiki utile per sessioni future di Claude Code.
