@@ -1,0 +1,13 @@
+backend:
+  - api-design
+  - fastapi
+
+frontend:
+  - react
+
+database:
+  - modeling
+
+security:
+  - auth
+  - validation

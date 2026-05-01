@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/sintec/.claude/plugins/**)",
+      "Read(//c/Users/sintec/.claude/**)"
+    ]
+  }
+}
